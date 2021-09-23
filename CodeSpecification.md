@@ -61,7 +61,7 @@
   One space
 
 # Other rules
-  There would not be Chinese except comments
+  There would not be Chinese except comments and file name
   
 
 
