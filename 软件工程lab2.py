@@ -96,10 +96,12 @@ def countIfElseIf(text, level):
         print("if-else num: {}".format(ifelse_num))
     if level == 4:
         print("if-elif-else num: {}".format(ifelifelse_num))
+
 def replaceElseIf(text, reg):
     elseIf = re.finditer(reg, text)
     for key in elseIf:
        text = text.replace(key.group(), 'elseif')
+       
     return text
 if __name__ == "__main__":
     kwList = ["auto", "break", "case", "char", "const", "continue", "default", "do", "double", "else", "enum",
