@@ -34,9 +34,9 @@ def countKeyWords(kwList, text):
     line = re.findall(reg, text)
     res = {}
     for word in kwList:
-        num = line.count(word)
+        num = line.count(word) # Count the number of different keywords
         if num != 0:
-            res[word] = num
+            res[word] = num 
     items = list(res.items())
     sum = 0
     for i in range(len(items)):
@@ -55,6 +55,7 @@ def countSwitch(text):
         print("There is no switch keyword in the keywords list")
         return 0
     for kw in line:
+        # switch will only be counted when the next switch appears
         if kw == 'switch':
             switch_num += 1
             flag = 1
@@ -68,7 +69,7 @@ def countSwitch(text):
 def countIfElseIf(text, level):
     reg = r"\be.*?f\b"
     reg1 = r'\b[a-zA-Z]+\b'
-    newText = replaceElseIf(text, reg)
+    newText = replaceElseIf(text, reg) # delete the space between else and if in elseif
     newkwList = re.findall(reg1, newText)
     ifelse_num = 0
     ifelifelse_num = 0
@@ -93,16 +94,16 @@ def countIfElseIf(text, level):
                         ifelifelse_num += 1
                         ifelifelse_flag = 0
     if level == 3:
-        print("if-else num: {}".format(ifelse_num))
+        print("if-else num: ", ifelse_num)
     if level == 4:
-        print("if-elif-else num: {}".format(ifelifelse_num))
+        print("if-elif-else num: ", ifelifelse_num)
 
 def replaceElseIf(text, reg):
     elseIf = re.finditer(reg, text)
     for key in elseIf:
        text = text.replace(key.group(), 'elseif')
     return text
-    
+
 if __name__ == "__main__":
     kwList = ["auto", "break", "case", "char", "const", "continue", "default", "do", "double", "else", "enum",
 				"extern", "float", "for", "goto", "if", "int", "long", "register", "return", "short", "signed",
