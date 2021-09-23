@@ -101,6 +101,7 @@ def replaceElseIf(text, reg):
     elseIf = re.finditer(reg, text)
     for key in elseIf:
        text = text.replace(key.group(), 'elseif')
+       
     return text
     
 if __name__ == "__main__":
