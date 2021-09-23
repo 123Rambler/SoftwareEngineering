@@ -92,10 +92,10 @@ def countIfElseIf(text, level):
                     if ifelifelse_flag:
                         ifelifelse_num += 1
                         ifelifelse_flag = 0
-    # if level == 3:
-    print("if-else num: {}".format(ifelse_num))
-    # if level == 4:
-    print("if-elif-else num: {}".format(ifelifelse_num))
+    if level == 3:
+        print("if-else num: {}".format(ifelse_num))
+    if level == 4:
+        print("if-elif-else num: {}".format(ifelifelse_num))
 def replaceElseIf(text, reg):
     elseIf = re.finditer(reg, text)
     for key in elseIf:
@@ -108,11 +108,11 @@ if __name__ == "__main__":
     file_name = input("Please enter the path of your file: ")
     level = int(input("Please enter the level you want(1-4): "))
     text = readFile(file_name)
-    # if level == 1:
-    countKeyWords(kwList, text)
-    # elif level == 2:
-    countSwitch(text)
-    # else:
-    countIfElseIf(text, level)
+    if level == 1:
+        countKeyWords(kwList, text)
+    elif level == 2:
+        countSwitch(text)
+    else:
+        countIfElseIf(text, level)
 
 
